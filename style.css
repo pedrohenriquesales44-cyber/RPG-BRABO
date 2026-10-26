@@ -1,0 +1,852 @@
+/* ==========================================
+   RESET
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+
+/* ==========================================
+   FUNDO PRINCIPAL
+   ========================================== */
+
+body {
+  background-image: url('SeiLá.gif');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  font-family: sans-serif;
+}
+
+
+/* ==========================================
+   TELA INICIAL
+   ========================================== */
+
+.tela-inicial {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.75)
+    ),
+    url('SeiLá.gif');
+
+  background-size: cover;
+  background-position: center;
+
+  z-index: 1000;
+}
+
+
+/* Caixa central da tela inicial */
+
+.menu-inicial {
+
+  background-color: rgba(0, 0, 0, 0.82);
+
+  border: 2px solid #7d7d7d;
+
+  border-radius: 10px;
+
+  width: 90%;
+  max-width: 600px;
+
+  padding: 50px 30px;
+
+  text-align: center;
+
+  box-shadow:
+    0px 5px 25px rgba(0, 0, 0, 0.8);
+}
+
+
+/* Título da tela inicial */
+
+.menu-inicial h1 {
+  /* Título com degradê */
+  background: linear-gradient(to bottom, #4A0002, #981B19, #B73E09);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+
+  font-size: 4rem;
+
+  margin-bottom: 15px;
+
+  /* text-shadow não funciona com texto transparente: usa drop-shadow */
+  filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.9));
+}
+
+
+/* Texto abaixo do título */
+
+.subtitulo {
+
+  color: #ddd;
+
+  font-family: 'Courier New', Courier, monospace;
+
+  font-size: 1rem;
+
+  margin-bottom: 35px;
+}
+
+
+/* ==========================================
+   BOTÃO JOGAR
+   ========================================== */
+
+.btn-jogar {
+
+  display: block;
+
+  width: 70%;
+
+  margin: 0 auto 15px auto;
+
+  padding: 15px 25px;
+
+  font-size: 1.4rem;
+
+  font-weight: bold;
+
+  background-color: #FFD700;
+
+  color: black;
+
+  border: none;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+
+.btn-jogar:hover {
+
+  background-color: #e6c200;
+
+  transform: scale(1.05);
+}
+
+
+/* ==========================================
+   BOTÃO DE SOM
+   ========================================== */
+
+.btn-som {
+
+  padding: 10px 20px;
+
+  font-size: 1rem;
+
+  background-color: #222;
+
+  color: white;
+
+  border: 1px solid #7d7d7d;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+
+.btn-som:hover {
+
+  background-color: #333;
+}
+
+
+/* ==========================================
+   CRÉDITOS
+   ========================================== */
+
+.creditos {
+
+  margin-top: 30px;
+
+  color: #aaa;
+
+  font-family: 'Courier New', Courier, monospace;
+
+  font-size: 0.8rem;
+
+  line-height: 1.5;
+}
+
+
+/* ==========================================
+   TELA DO JOGO
+   ========================================== */
+
+/*
+   Começa escondida.
+   O JavaScript mostra quando clicar em JOGAR.
+*/
+
+.tela-jogo {
+
+  display: none;
+
+  width: 100%;
+}
+
+
+/* ==========================================
+   TÍTULO DO JOGO
+   ========================================== */
+
+h1 {
+  /* Título com degradê */
+  background: linear-gradient(to bottom, #4A0002, #981B19, #B73E09);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+
+  font-size: 3rem;
+
+  margin-top: 40px;
+
+  /* text-shadow não funciona com texto transparente: usa drop-shadow */
+  filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.7));
+}
+
+
+/* ==========================================
+   JANELA DO JOGO
+   ========================================== */
+
+.terminal {
+
+  background-color: rgba(0, 0, 0, 0.85);
+
+  border: 2px solid #7d7d7d;
+
+  border-radius: 8px;
+
+  width: 90%;
+
+  max-width: 600px;
+
+  padding: 20px;
+
+  margin: 20px auto 0 auto;
+
+  color: #fff;
+
+  box-shadow:
+    0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ==========================================
+   TEXTO DO JOGO
+   ========================================== */
+
+.texto-jogo {
+
+  min-height: 150px;
+
+  font-family:
+    'Courier New',
+    Courier,
+    monospace;
+
+  font-size: 1.1rem;
+
+  line-height: 1.6;
+
+  white-space: pre-line;
+}
+
+
+/* ==========================================
+   ÁREA DE INPUT
+   ========================================== */
+
+.input-area {
+
+  margin-top: 20px;
+
+  /* Escondido: as opções agora são botões */
+  display: none;
+
+  gap: 10px;
+}
+
+
+/* Campo de entrada */
+
+.input-area input {
+
+  flex: 1;
+
+  padding: 10px;
+
+  font-size: 1rem;
+
+  border: 1px solid #FFD700;
+
+  background: #222;
+
+  color: white;
+
+  border-radius: 4px;
+}
+
+
+/* Botão enviar */
+
+.input-area button {
+
+  padding: 10px 20px;
+
+  font-size: 1rem;
+
+  background-color: #FFD700;
+
+  color: black;
+
+  border: none;
+
+  font-weight: bold;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+
+.input-area button:hover {
+
+  background-color: #e6c200;
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE
+   ========================================== */
+
+@media (max-width: 600px) {
+
+  .menu-inicial h1 {
+
+    font-size: 2.5rem;
+  }
+
+  .btn-jogar {
+
+    width: 90%;
+  }
+
+  h1 {
+
+    font-size: 2.3rem;
+  }
+
+}
+
+/* ============================= */
+/* TELA PRETA INICIAL */
+/* ============================= */
+
+#telaPreta {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+
+  color: white;
+}
+
+.inicio-conteudo {
+  text-align: center;
+}
+
+.inicio-conteudo p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.inicio-conteudo span {
+  display: block;
+  margin-bottom: 20px;
+  color: #aaa;
+}
+
+#btnContinuar {
+  font-family: monospace;
+
+  cursor: pointer;
+
+  border: 2px solid #FF4500;
+
+  background: black;
+
+  color: #FF4500;
+
+  padding: 12px 30px;
+
+  font-size: 1rem;
+}
+
+#btnContinuar:hover {
+  background: #FF4500;
+  color: black;
+}
+/* ============================= */
+/* ABERTURA DO JOGO */
+/* ============================= */
+
+#apresentacao {
+  display: none;
+  text-align: center;
+}
+
+#apresentacao p {
+  margin: 8px 0;
+  font-size: 1.3rem;
+}
+
+#tituloAbertura {
+  display: none;
+  text-align: center;
+}
+
+#tituloAbertura h1 {
+  /* Título com degradê */
+  background: linear-gradient(to bottom, #4A0002, #981B19, #B73E09);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-size: 3rem;
+
+  /* text-shadow não funciona com texto transparente: usa drop-shadow */
+  filter: drop-shadow(0 0 12px rgba(255, 69, 0, 0.8));
+}
+#telaPressione {
+  text-align: center;
+  color: white;
+}
+
+#telaPressione p {
+  margin: 8px 0;
+  font-size: 1.3rem;
+}
+
+/* ============================= */
+/* BOTÃO FIXO DE MUTAR MÚSICA */
+/* ============================= */
+
+.controle-som-fixo {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+
+  /* Acima de todas as telas (que usam z-index 1000) */
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 4px 4px 4px 12px;
+
+  background-color: rgba(0, 0, 0, 0.8);
+
+  border: 1px solid #7d7d7d;
+
+  border-radius: 4px;
+}
+
+/* Barra de volume */
+.slider-volume {
+  width: 90px;
+
+  cursor: pointer;
+
+  accent-color: #FFD700;
+}
+
+.btn-som-fixo {
+  padding: 6px 12px;
+
+  font-size: 0.9rem;
+
+  background-color: transparent;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+.btn-som-fixo:hover {
+  background-color: #333;
+}
+
+@media (max-width: 600px) {
+
+  .slider-volume {
+    width: 70px;
+  }
+}
+
+
+/* ============================= */
+/* BOTÕES DE OPÇÃO DO JOGO */
+/* ============================= */
+
+.botoes-jogo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.botoes-jogo:empty {
+  display: none;
+}
+
+/*
+   Botão dark fantasy: azul-índigo frio e saturado.
+   O brilho do hover é o ::before, que acompanha o mouse
+   através das variáveis --mx e --my (definidas pelo script.js).
+*/
+.btn-opcao {
+  /* Cria um contexto próprio para o brilho ficar ATRÁS do texto */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  width: 100%;
+
+  padding: 12px 16px;
+
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-align: center;
+
+  color: #dce6ff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+
+  background: linear-gradient(to bottom, #2a3a80, #1b2559);
+
+  border: 1px solid #4a64b8;
+  border-radius: 4px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(160, 190, 255, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.6);
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.1s;
+}
+
+/* Brilho circular que segue o mouse */
+.btn-opcao::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  background: radial-gradient(
+    circle 120px at var(--mx, 50%) var(--my, 50%),
+    rgba(165, 192, 255, 0.30) 0%,
+    rgba(165, 192, 255, 0.12) 45%,
+    transparent 80%
+  );
+}
+
+.btn-opcao:hover {
+  /* Fundo levemente mais claro */
+  background: linear-gradient(to bottom, #34479a, #232f6c);
+  border-color: #7d9aea;
+}
+
+.btn-opcao:hover::before {
+  opacity: 1;
+}
+
+.btn-opcao:active {
+  transform: scale(0.98);
+}
+
+/* Botões de voltar/sair: mesma família, mais escuros e discretos */
+.btn-voltar {
+  color: #a3b4e6;
+
+  background: linear-gradient(to bottom, #171d3c, #0f1429);
+
+  border-color: #3b4a86;
+}
+
+.btn-voltar:hover {
+  background: linear-gradient(to bottom, #202850, #151b38);
+  border-color: #6279c4;
+}
+
+/* ============================= */
+/* MINI MENU (CANTO SUPERIOR ESQUERDO) */
+/* ============================= */
+
+.mini-menu {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+
+  /* Acima das telas (z-index 1000) */
+  z-index: 2000;
+
+  font-family: sans-serif;
+}
+
+.mini-menu-toggle {
+  padding: 6px 12px;
+
+  font-size: 0.9rem;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+
+  border: 1px solid #7d7d7d;
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+.mini-menu-toggle:hover {
+  background-color: #333;
+}
+
+/* Lista que abre embaixo do botão */
+.mini-menu-lista {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-top: 6px;
+  padding: 6px;
+
+  min-width: 160px;
+
+  background-color: rgba(0, 0, 0, 0.9);
+
+  border: 1px solid #7d7d7d;
+  border-radius: 4px;
+}
+
+.mini-menu-lista.aberto {
+  display: flex;
+}
+
+.mini-menu-lista button {
+  padding: 8px 10px;
+
+  font-size: 0.9rem;
+  text-align: left;
+
+  background-color: transparent;
+  color: white;
+
+  border: none;
+  border-radius: 3px;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+.mini-menu-lista button:hover {
+  background-color: #FFD700;
+  color: black;
+}
+
+/* Mensagem curta (ex.: "Nenhum jogo salvo para retomar.") */
+.mini-menu-aviso {
+  display: none;
+
+  margin-top: 6px;
+  padding: 6px 10px;
+
+  max-width: 220px;
+
+  font-size: 0.8rem;
+
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #FFD700;
+
+  border: 1px solid #7d7d7d;
+  border-radius: 4px;
+}
+
+.mini-menu-aviso.visivel {
+  display: block;
+}
+
+
+/* ============================= */
+/* TÍTULOS DAS TELAS DO JOGO */
+/* ============================= */
+
+.texto-bloco {
+  margin-bottom: 12px;
+}
+
+/* Título de cada tela: "ESCOLHA SEU PERSONAGEM", "COMBATE", "LOJA"... */
+.titulo-tela {
+  display: block;
+
+  margin: 4px 0 18px 0;
+  padding: 10px 0;
+
+  text-align: center;
+  white-space: normal;
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: #dce6ff;
+  text-shadow: 0 0 10px rgba(125, 154, 234, 0.55);
+
+  /* Linhas douradas que somem nas pontas */
+  border: none;
+  background:
+    linear-gradient(to right, transparent, #4a64b8, transparent) top / 100% 1px no-repeat,
+    linear-gradient(to right, transparent, #4a64b8, transparent) bottom / 100% 1px no-repeat;
+}
+
+.titulo-tela::before {
+  content: "✦ ";
+  color: #7d9aea;
+}
+
+.titulo-tela::after {
+  content: " ✦";
+  color: #7d9aea;
+}
+
+/* Título do menu principal (maior, com degradê quente) */
+.titulo-principal {
+  display: block;
+
+  margin: 4px 0 20px 0;
+  padding: 14px 0;
+
+  text-align: center;
+  white-space: normal;
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.7rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  background: linear-gradient(to bottom, #dce6ff, #9fb6f5, #5f7fd6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0 0 8px rgba(125, 154, 234, 0.5));
+
+  border-top: 1px solid #4a64b8;
+  border-bottom: 1px solid #4a64b8;
+}
+
+/* Tela de derrota */
+.titulo-derrota {
+  color: #FF4040;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+.titulo-derrota::before,
+.titulo-derrota::after {
+  color: #FF4040;
+}
+
+@media (max-width: 600px) {
+
+  .titulo-tela {
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+  }
+
+  .titulo-principal {
+    font-size: 1.3rem;
+  }
+}

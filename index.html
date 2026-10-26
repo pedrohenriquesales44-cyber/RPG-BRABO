@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RPG Textual - Web 1_Revenge of NPC</title>
+
+  <!-- Conecta o arquivo de estilos CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="telaPreta">
+
+  <div id="telaPressione">
+    <p>Pressione qualquer tecla</p>
+    <p>para continuar</p>
+  </div>
+
+  <div class="inicio-conteudo">
+
+    <div id="apresentacao">
+      <p>Caio Honorato</p>
+      <p>Pedro Sales</p>
+      <p>Rafael Francisco</p>
+      <p>Apresentam...</p>
+    </div>
+
+    <div id="tituloAbertura">
+      <h1>REVENGE OF NPC</h1>
+    </div>
+
+  </div>
+
+</div>
+
+  <!-- ==========================================
+       TELA INICIAL
+       ========================================== -->
+
+  <div id="telaInicial" class="tela-inicial">
+
+    <div class="menu-inicial">
+
+      <h1>Revenge of NPC</h1>
+
+      <p class="subtitulo">
+        Uma aventura está prestes a começar...
+      </p>
+
+      <button id="btnJogar" class="btn-jogar">
+        JOGAR
+      </button>
+
+      <button id="btnSom" class="btn-som">
+        🔊 Música
+      </button>
+
+      <p class="creditos">
+        Música: KIZUNA
+        <br>
+        © PANICPUMPKIN
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================
+       JOGO
+       Fica escondido até clicar em JOGAR
+       ========================================== -->
+
+  <div id="telaJogo" class="tela-jogo">
+
+    <main class="terminal">
+
+      <!-- Caixa onde os prints do jogo vão aparecer -->
+      <div class="texto-jogo" id="telaTexto">
+
+        Você entra em uma caverna escura...
+
+        1 - Seguir em frente
+        2 - Voltar para a vila
+
+        Escolha uma opção:
+
+      </div>
+
+      <!-- Botões das opções (gerados pelo script.js) -->
+      <div class="botoes-jogo" id="botoesJogo"></div>
+
+      <!-- Campo antigo de digitação (escondido; os botões o substituem) -->
+      <div class="input-area">
+
+        <input
+          type="number"
+          id="opcaoUsuario"
+          placeholder="Digite o número..."
+          min="0"
+          max="9"
+        >
+
+        <button id="btnEnviar">
+          Enviar
+        </button>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- ==========================================
+       MÚSICA
+       ========================================== -->
+
+  <!-- Botão fixo no canto: muta/desmuta a música a qualquer momento -->
+  <button id="btnSomFixo" class="btn-som-fixo" title="Mutar / desmutar música">
+    🔊 Música
+  </button>
+
+  <!-- Mini menu (canto superior esquerdo). Aparece depois de clicar em JOGAR -->
+  <nav id="miniMenu" class="mini-menu" style="display: none;">
+
+    <button id="miniMenuToggle" class="mini-menu-toggle" aria-expanded="false">
+      ☰ Menu
+    </button>
+
+    <div id="miniMenuLista" class="mini-menu-lista">
+      <button id="btnMiniSalvar">💾 Salvar</button>
+      <button id="btnMiniCarregar">📂 Carregar</button>
+      <button id="btnMiniRetomar">▶ Retomar jogo</button>
+      <button id="btnMiniSair">🚪 Sair do jogo</button>
+    </div>
+
+    <div id="miniMenuAviso" class="mini-menu-aviso"></div>
+
+  </nav>
+
+  <audio id="musicaMenu" loop>
+    <source src="KIZUNA.mp3" type="audio/mpeg">
+  </audio>
+
+
+  <!-- Conecta o arquivo de lógica JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
